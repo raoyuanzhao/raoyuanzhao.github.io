@@ -64,7 +64,7 @@ enable_one_page_mode = false
 
 [visitor_map]
 # World map with visits per country, shown in the sidebar below the profile.
-# Statistics are fetched at build time (every 6 hours on GitHub Actions) by
+# Statistics are fetched at build time (every hour on GitHub Actions) by
 # scripts/fetch-visitor-stats.mjs. See README.md → "Visitor map" for setup and the privacy notes.
 enabled = true
 # "goatcounter" (free hosted service) or "umami" (Umami Cloud Pro, or self-hosted)

@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 const numberFormat = new Intl.NumberFormat('en');
 const dateFormat = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-/** Dot radius range in map units (the map is 1000 units wide, about 200 px in the sidebar). */
+/** Dot radius range in map units (the map is 1000 units wide, about 240–260 px in the sidebar). */
 const DOT_MIN_R = 9;
 const DOT_MAX_R = 22;
 /** How far outside a dot the pointer may be and still select it, in screen pixels. */
@@ -205,7 +205,7 @@ function MapDots({ countries, metric, label }: { countries: VisitorCountry[]; me
             {active && (
                 <div
                     aria-hidden="true"
-                    className="visitor-tooltip pointer-events-none absolute z-20 flex max-w-[200px] items-center gap-1.5 whitespace-nowrap rounded-md border border-line bg-surface px-2 py-1 text-[11.5px] leading-tight text-foreground shadow-soft"
+                    className="visitor-tooltip pointer-events-none absolute z-20 flex max-w-[240px] items-center gap-1.5 whitespace-nowrap rounded-md border border-line bg-surface px-2 py-1 text-[11.5px] leading-tight text-foreground shadow-soft"
                     style={{
                         left: `${xFrac * 100}%`,
                         top: `${anchorY * 100}%`,
@@ -250,7 +250,7 @@ export default function VisitorMap({ config, stats, statsEnabled, privacyHref, c
     return (
         <section
             aria-label={title}
-            className={cn('w-full max-w-[280px] rounded-[14px] border border-dashed border-line px-4 py-4 text-left lg:max-w-[240px]', className)}
+            className={cn('w-full max-w-[340px] rounded-[14px] border border-dashed border-line px-4 py-4 text-left lg:max-w-none', className)}
         >
             <div className="mb-2.5 flex items-start justify-between gap-3">
                 <h2 className="text-[12px] font-semibold uppercase leading-[1.35] tracking-[0.08em] text-primary">{title}</h2>

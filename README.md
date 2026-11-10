@@ -158,7 +158,7 @@ GitHub Pages only serves static files, so the statistics are fetched **at build 
 2. `npm run stats` (`scripts/fetch-visitor-stats.mjs`) asks the provider's API for all-time visits per country and the all-time total, and writes `.generated/visitor-stats.json` (country codes and counts only), and copies the flags of those countries from [flag-icons](https://flagicons.lipis.dev/) to `public/flags/`. Both are generated files and are not committed.
 3. `npm run build` reads the file and renders the card into the static pages.
 
-The GitHub Actions workflow runs these steps on every push and **every 6 hours**, so the card refreshes automatically. The API credential is a GitHub Actions secret that only the "Fetch visitor statistics" step can read; it never reaches the build output or the browser. If a configured provider cannot be reached, the workflow stops before deploying, so the currently live statistics stay in place. (GitHub pauses scheduled workflows in public repositories after 60 days without commits; re-enable it in the Actions tab if that happens.)
+The GitHub Actions workflow runs these steps on every push and **every hour**, so the card refreshes automatically. The API credential is a GitHub Actions secret that only the "Fetch visitor statistics" step can read; it never reaches the build output or the browser. If a configured provider cannot be reached, the workflow stops before deploying, so the currently live statistics stay in place. (GitHub pauses scheduled workflows in public repositories after 60 days without commits; re-enable it in the Actions tab if that happens.)
 
 ### Setup with GoatCounter (free)
 
