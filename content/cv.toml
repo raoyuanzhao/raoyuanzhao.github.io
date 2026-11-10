@@ -1,0 +1,28 @@
+# CV page. The sections below are assembled from the other content files, so the CV
+# stays in sync with the rest of the site. To add a free-form summary above them,
+# create a Markdown file and set e.g. source = "cv.md".
+
+type = "text"
+title = "Curriculum Vitae"
+description = "PhD Student in Natural Language Processing · LMU Munich"
+# Put your PDF at public/cv/Raoyuan_Zhao_CV.pdf; the download button activates automatically.
+pdf = "/cv/Raoyuan_Zhao_CV.pdf"
+pdf_label = "Download CV"
+
+[[sections]]
+id = "cv-education"
+type = "cards"
+title = "Education"
+source = "experience.toml"
+category = "Education"
+layout = "timeline"
+variant = "cv"
+
+[[sections]]
+id = "cv-experience"
+type = "cards"
+title = "Research Experience"
+source = "experience.toml"
+category = "Research Experience"
+layout = "timeline"
+variant = "cv"

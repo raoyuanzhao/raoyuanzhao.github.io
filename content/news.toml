@@ -1,0 +1,80 @@
+# News, newest first; entries are grouped by year on the page. `date` is "Mmm YYYY"
+# (or just "YYYY" when the month is unknown). Entries with the same month keep this file's order.
+#
+# `content` supports inline Markdown. Link a paper with its BibTeX key from publications.bib,
+# e.g. [MAKIEval](pub:zhao-etal-2025-makieval); the build fills in the URL and fails on unknown keys.
+# Paper acceptances use the official notification month. Talk titles link to the Talks page.
+
+# 2026
+
+[[news]]
+date = "Oct 2026"
+content = "🇭🇺 Attended [**EMNLP 2026**](https://2026.emnlp.org/) in Budapest, Hungary, and presented our work on [multilingual mathematical reasoning](pub:zhang-etal-2026-beyond-input). My third EMNLP — time really flies."
+
+[[news]]
+date = "Aug 2026"
+content = "🎉 Our paper [**\"Beyond Input Understanding: Diagnosing Multilingual Mathematical Reasoning with Directed Acyclic Trace Graphs\"**](pub:zhang-etal-2026-beyond-input) was accepted to [**EMNLP 2026 (Main Conference)**](https://2026.emnlp.org/)."
+
+[[news]]
+date = "Jul 2026"
+content = "💼 Started my Research Internship at [**Cohere**](https://cohere.com/), working on instruction following and self-verification in large language models."
+
+[[news]]
+date = "Jul 2026"
+content = "🇺🇸 Attended [**ACL 2026**](https://2026.aclweb.org/) in San Diego, California. Enjoyed the California sunshine ☀️ and tried Jollibee for the first time — absolutely loved it 🍗"
+
+[[news]]
+date = "Jun 2026"
+content = "🎤 Gave an invited talk on [**Synthetic Data for LLM Evaluation**](/talks/) at the [**Munich🥨NLP × XPeng Meetup**](https://munich-nlp.com/xpeng_26/) in Munich."
+
+[[news]]
+date = "Apr 2026"
+content = "🎉 Two papers accepted to [**ACL 2026**](https://2026.aclweb.org/) (Main Conference and Findings), on [multilingual typo robustness](pub:zhao-etal-2026-evaluating) and [multilingual reasoning](pub:liu-etal-2026-large)."
+
+[[news]]
+date = "Mar 2026"
+content = "🇲🇦 Attended [**EACL 2026**](https://2026.eacl.org/) in Rabat, Morocco, and presented [our research](pub:zhao-etal-2026-comprehensive). My first time setting foot on the African continent 🌍"
+
+[[news]]
+date = "Jan 2026"
+content = "🎉 Our paper [**\"Human Uncertainty-Aware Data Selection and Automatic Labeling in Visual Question Answering\" (HaDola)**](https://proceedings.iclr.cc/paper_files/paper/2026/hash/97b73904e88cc1dc0a3485595eda3753-Abstract-Conference.html) was accepted to [**ICLR 2026 (Main Conference)**](https://iclr.cc/Conferences/2026)."
+
+[[news]]
+date = "Jan 2026"
+content = "🎉 Our paper on [multilingual chain-of-thought reasoning](pub:zhao-etal-2026-comprehensive) was accepted to [**Findings of EACL 2026**](https://2026.eacl.org/)."
+
+# 2025
+
+[[news]]
+date = "Nov 2025"
+content = "🇨🇳 Attended [**EMNLP 2025**](https://2025.emnlp.org/) in Suzhou, China. Always lovely to be back in my beautiful home country ❤️"
+
+[[news]]
+date = "Sep 2025"
+content = "🎤 Gave an invited talk on [**Cultural Evaluation of LLMs**](/talks/) at the [**MCML–LAMARR Workshop**](https://events.lamarr-institute.org/event/262/timetable/?view=standard) in Bonn, Germany."
+
+[[news]]
+date = "Aug 2025"
+content = "🎉 Two papers accepted to [**Findings of EMNLP 2025**](https://2025.emnlp.org/), including [**MAKIEval**](pub:zhao-etal-2025-makieval), our work on multilingual cultural evaluation, and a paper on [knowledge probing consistency](pub:zhao-etal-2025-know)."
+
+[[news]]
+date = "Jul 2025"
+content = "🇦🇹 Attended [**ACL 2025**](https://2025.aclweb.org/) in Vienna, Austria. A taxi driver told me I had a German accent when speaking German — apparently, my time in Munich is showing 😂"
+
+[[news]]
+date = "May 2025"
+content = "🎉 Our paper on [understanding the effects of prompt and model changes](pub:hedderich-etal-2025-whats) was accepted to [**ACL 2025 (Main Conference)**](https://2025.aclweb.org/)."
+
+# 2024
+
+[[news]]
+date = "Dec 2024"
+content = "🎓 Started my PhD at [**LMU Munich**](https://www.lmu.de/en/), advised by [Dr. Michael A. Hedderich](https://michael-hedderich.de/)."
+
+[[news]]
+date = "Nov 2024"
+content = "🇺🇸 Attended [**EMNLP 2024**](https://2024.emnlp.org/) in Miami, USA — my very first AI conference and my first time setting foot in the Americas 🌎"
+
+[[news]]
+date = "Sep 2024"
+content = "🎉 Our paper [**SynthEval**](pub:zhao-etal-2024-syntheval) was accepted to [**Findings of EMNLP 2024**](https://2024.emnlp.org/)."

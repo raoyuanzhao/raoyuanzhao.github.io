@@ -1,0 +1,7 @@
+# Privacy notice (linked from the footer and the visitor map; not in the navigation).
+# Review the text in privacy.md before publishing, especially the hosting section.
+
+type = "text"
+title = "Privacy"
+description = "How this website handles visitor data."
+source = "privacy.md"

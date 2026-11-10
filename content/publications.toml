@@ -1,0 +1,4 @@
+type = "publication"
+title = "Publications"
+description = "Full list of my publications and preprints. Use the search and filters to browse by year or type."
+source = "publications.bib"

@@ -1,0 +1,144 @@
+# Site-wide settings. Restart `npm run dev` after editing this file.
+
+[site]
+title = "Raoyuan Zhao"
+description = "Raoyuan Zhao is a PhD student in Natural Language Processing at LMU Munich (MaiNLP, MCML), working on reasoning, post-training, instruction following, and self-verification of large language models."
+favicon = "/favicon.svg"
+last_updated = "November 2026"
+# First year shown in the footer copyright (e.g. "2026–2027")
+copyright_start = 2026
+# Public URL of the deployed site, e.g. "https://<username>.github.io".
+# Enables canonical URLs, sitemap.xml, and Open Graph URLs. Leave empty until you know the final address.
+url = "https://raoyuanzhao.github.io"
+keywords = [
+  "Raoyuan Zhao",
+  "Natural Language Processing",
+  "Large Language Models",
+  "LLM Reasoning",
+  "Post-training",
+  "Instruction Following",
+  "Multilingual NLP",
+  "LMU Munich",
+  "MaiNLP",
+  "MCML",
+]
+
+[author]
+name = "Raoyuan Zhao"
+title = "PhD Student in Natural Language Processing"
+institution = "LMU Munich"
+institution_url = "https://www.lmu.de/en/"
+# Profile photo: put the file at public/profile.jpg (or change the path, e.g. "/profile.png").
+# Shown as a circle; a square image of at least 440×440 px works best.
+# Until the file exists, a placeholder is shown.
+avatar = "/profile.jpg"
+# Optional short muted clip (square MP4) that plays while the mouse is over the photo,
+# or on tap on touch screens. Not played for visitors who prefer reduced motion.
+avatar_video = "/profile-live.mp4"
+# Optional "Pronounced …" line under the name. With an audio file, a small speaker button plays it.
+pronunciation = "Ráoyuán"
+pronunciation_audio = "/audio/raoyuan.mp3"
+location = "Munich, Germany"
+affiliations = [
+  { name = "MaiNLP", url = "https://mainlp.github.io/" },
+  { name = "MCML", url = "https://mcml.ai/" },
+]
+
+[social]
+# Leave a value empty ("") to hide its icon.
+email = "raoyuan.zhao@cis.lmu.de"
+google_scholar = "https://scholar.google.com/citations?user=LQu8QPYAAAAJ"   # e.g. "https://scholar.google.com/citations?user=XXXXXXX"
+semantic_scholar = "https://www.semanticscholar.org/author/Rao-Yuan-Zhao/2319817746" # e.g. "https://www.semanticscholar.org/author/<name>/<id>"
+github = "https://github.com/raoyuanzhao" # e.g. "https://github.com/<username>"
+huggingface = "https://huggingface.co/Raoyuan" # e.g. "https://huggingface.co/<username>"
+linkedin = "https://www.linkedin.com/in/raoyuan-zhao"         # e.g. "https://www.linkedin.com/in/<handle>"
+orcid = ""            # e.g. "https://orcid.org/0000-0000-0000-0000"
+twitter = ""
+bluesky = ""
+# CV PDF inside public/. The CV icon only appears once the file exists.
+cv = "/cv/Raoyuan_Zhao_CV.pdf"
+
+[features]
+# Render every navigation page on the homepage as one long page
+enable_one_page_mode = false
+
+[visitor_map]
+# World map with visits per country, shown in the sidebar below the profile.
+# Statistics are fetched at build time (every 6 hours on GitHub Actions) by
+# scripts/fetch-visitor-stats.mjs. See README.md → "Visitor map" for setup and the privacy notes.
+enabled = true
+# "goatcounter" (free hosted service) or "umami" (Umami Cloud Pro, or self-hosted)
+provider = "goatcounter"
+title = "Visitor Map"
+
+# API credentials are never stored here. Set them as GitHub Actions secrets:
+#   GoatCounter: GOATCOUNTER_API_TOKEN
+#   Umami:       UMAMI_API_KEY (Umami Cloud), or UMAMI_USERNAME + UMAMI_PASSWORD (self-hosted)
+[visitor_map.goatcounter]
+# The <code> in https://<code>.goatcounter.com. Not a secret: it appears in the page HTML.
+code = "raoyuan"
+
+[visitor_map.umami]
+# Website ID from Umami → Settings → Websites. Not a secret: it appears in the page HTML.
+website_id = ""
+# Defaults are for Umami Cloud. For a self-hosted instance use
+# "https://<your-umami-host>/script.js" and "https://<your-umami-host>/api".
+script_url = "https://cloud.umami.is/script.js"
+api_url = "https://api.umami.is/v1"
+
+# Map colours (hex without #) for each theme: cl = land, co = background
+[visitor_map.light]
+cl = "dcc4b2"
+co = "f3ede6"
+
+[visitor_map.dark]
+cl = "4f473f"
+co = "282521"
+
+[i18n]
+enabled = false
+locales = ["en"]
+default_locale = "en"
+mode = "fixed"
+fixed_locale = "en"
+persist = false
+switcher = false
+
+[i18n.labels]
+en = "English"
+
+[[navigation]]
+title = "About"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "Publications"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "Talks"
+type = "page"
+target = "talks"
+href = "/talks"
+
+[[navigation]]
+title = "Teaching"
+type = "page"
+target = "teaching"
+href = "/teaching"
+
+[[navigation]]
+title = "CV"
+type = "page"
+target = "cv"
+href = "/cv"
+
+# Pages that are built but not listed in the top navigation
+[[extra_pages]]
+title = "Privacy"
+target = "privacy"
+href = "/privacy"

@@ -1,0 +1,43 @@
+# Homepage (the "About" page). Sections are rendered top to bottom.
+
+type = "about"
+title = "About"
+
+[profile]
+research_interests = [
+  "Synthetic Data Generation",
+  "Reinforcement Learning & Post-training",
+  "Model Evaluation & Reliability",
+  "Multilingual NLP",
+  "LLM Reasoning",
+]
+
+[[sections]]
+id = "about"
+type = "markdown"
+source = "bio.md"
+title = "About Me"
+
+# Shown under the bio; the link opens an email to [social] email in config.toml
+[sections.reach_out]
+title = "Feel free to reach out!"
+text = "I'm always happy to connect with people, exchange ideas, and chat about research or anything interesting. :)"
+link_label = "Get in touch"
+
+[[sections]]
+id = "research-interests"
+type = "interests"
+title = "Research Interests"
+
+[[sections]]
+id = "news"
+type = "list"
+source = "news.toml"
+title = "News"
+# All entries are shown, newest first, in a scrollable box (about 3–4 entries tall)
+
+[[sections]]
+id = "trivia"
+type = "markdown"
+source = "trivia.md"
+title = "Trivia"

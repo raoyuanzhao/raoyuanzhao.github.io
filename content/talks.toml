@@ -1,0 +1,44 @@
+# Invited talks and research seminars, newest first. Conference paper presentations are
+# covered by Publications and News, so they are not listed here.
+#
+# Template (copy, uncomment, and fill in):
+#
+# [[items]]
+# title = "Talk title"
+# subtitle = "Host institution or event"
+# date = "Mar 10, 2027"               # use "Mar 2027" or "2027" if the exact day is unknown
+# location = "City, Country"
+# link = "https://…"                  # optional: makes the title clickable
+# links = [
+#   { label = "Event", url = "https://…" },
+#   { label = "Slides", url = "https://…" },
+# ]
+
+type = "card"
+title = "Talks"
+description = "Invited talks and research seminars."
+layout = "timeline"
+compact = true
+empty_message = "Talk details will be added soon."
+
+[[items]]
+title = "Synthetic Data for LLM Evaluation: Toward Dynamic, Scalable, and Multilingual Assessment"
+subtitle = "Munich🥨NLP × XPeng Meetup"
+date = "Jun 10, 2026"
+location = "Munich, Germany"
+link = "https://munich-nlp.com/xpeng_26/"
+links = [
+  { label = "Event", url = "https://munich-nlp.com/xpeng_26/" },
+]
+
+[[items]]
+# Descriptive title, not the official one in the programme
+title = "Cultural Evaluation of LLMs"
+subtitle = "MCML–LAMARR Workshop 2025"
+date = "Sep 24, 2025"
+location = "University of Bonn, Germany"
+link = "https://events.lamarr-institute.org/event/262/timetable/?view=standard"
+links = [
+  { label = "Event", url = "https://events.lamarr-institute.org/event/262/timetable/?view=standard" },
+  { label = "Slides", url = "https://events.lamarr-institute.org/event/262/sessions/104/attachments/237/404/Raoyuan-Zhao-MakiEval.pdf" },
+]

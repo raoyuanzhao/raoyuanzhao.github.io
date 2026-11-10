@@ -1,0 +1,303 @@
+% Publications of Raoyuan Zhao
+%
+% Published papers use the official ACL Anthology BibTeX (https://aclanthology.org/people/raoyuan-zhao/);
+% the ICLR paper links to the ICLR proceedings.
+% Preprints use the arXiv BibTeX export format. Abstracts are taken from arXiv.
+%
+% Website-only fields (removed from the "BibTeX" citation shown to visitors):
+%   selected = {true}      show on the homepage under "Selected Publications"
+%   venue    = {...}       short venue label, e.g. "EMNLP 2026 (Main)"
+%   pdf, code, project     extra link buttons
+%   arxiv    = {2605.09548} adds an arXiv link to a published paper
+%   abstract, description, keywords, preview
+%
+% Entries are sorted automatically by year and month on the website.
+
+@inproceedings{zhang-etal-2026-beyond-input,
+    title = "Beyond Input Understanding: Diagnosing Multilingual Mathematical Reasoning with Directed Acyclic Trace Graphs",
+    author = "Zhang, Jiaqiao  and
+      Li, Zhoujun  and
+      Zhao, Raoyuan  and
+      Lan, Jian  and
+      Seidl, Thomas  and
+      Hedderich, Michael A.  and
+      Schuetze, Hinrich  and
+      Liu, Yihong",
+    editor = "Lee, Hung-Yi  and
+      Dev, Sunipa  and
+      Li, Junyi Jessy  and
+      Elliott, Desmond",
+    booktitle = "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.emnlp-main.463/",
+    doi = "10.18653/2026.emnlp-main.463",
+    pages = "10615--10639",
+    ISBN = "979-8-89176-459-0",
+    selected = {true},
+    venue = {EMNLP 2026 (Main)},
+    pdf = {https://aclanthology.org/2026.emnlp-main.463.pdf},
+    arxiv = {2605.27715},
+    abstract = {Large reasoning models (LRMs) achieve strong mathematical reasoning performance in English, but remain much less reliable in many low- and medium-resource languages. This gap is often explained as a failure to understand non-English problem statements. We show that this view is incomplete: even when the problem is given in English, controlling the model's reasoning language can substantially reduce accuracy, suggesting that language also affects reasoning execution itself. To study this effect, we introduce DATG, a Directed Acyclic Trace Graph framework that maps reasoning traces to language-independent mathematical anchors and dependencies. This allows us to align target-language traces with reference DAGs and measure whether they cover required mathematical nodes, respect dependency edges, and avoid harmful mathematical actions. Experiments on the Qwen3 series across 12 languages show that non-English reasoning often suffers from reduced anchor coverage and weaker dependency fidelity, especially in low-resource languages. Motivated by this diagnosis, we propose Loop-Retry and Formula-Retry, two simple test-time controls targeting DATG-exposed failure modes, and show that they consistently improve target-language reasoning performance in low-resource languages.}
+}
+
+@inproceedings{zhao-etal-2026-evaluating,
+    title = "Evaluating Robustness of Large Language Models Against Multilingual Typographical Errors",
+    author = "Zhao, Raoyuan  and
+      Liu, Yihong  and
+      Altinger, Lena  and
+      Schuetze, Hinrich  and
+      Hedderich, Michael A.",
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Proceedings of the 64th Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.acl-long.729/",
+    doi = "10.18653/v1/2026.acl-long.729",
+    pages = "16059--16078",
+    ISBN = "979-8-89176-390-6",
+    selected = {true},
+    venue = {ACL 2026 (Main)},
+    pdf = {https://aclanthology.org/2026.acl-long.729.pdf},
+    arxiv = {2510.09536},
+    code = {https://github.com/cisnlp/multypo},
+    abstract = {Large language models (LLMs) are increasingly deployed in multilingual, real-world applications with user inputs -- naturally introducing \emph{typographical errors} (typos). Yet most benchmarks assume clean input, leaving the robustness of LLMs to typos across languages largely underexplored. To address this gap, we introduce MulTypo, a multilingual typo generation algorithm that simulates human-like errors based on language-specific keyboard layouts and typing behavior. We evaluate 18 open-source LLMs across three model families and five downstream tasks spanning language inference, multi-choice question answering, mathematical reasoning, and machine translation tasks. Our results show that typos consistently degrade performance, particularly in generative tasks and those requiring reasoning -- while the natural language inference task is comparatively more robust. Instruction tuning improves clean-input performance but may increase brittleness under noise. We also observe language-dependent robustness: high-resource languages are generally more robust than low-resource ones, and translation from English is more robust than translation into English. Our findings underscore the need for noise-aware training and multilingual robustness evaluation. We release a Python package for MulTypo and make the source code publicly available at https://github.com/cisnlp/multypo.}
+}
+
+@inproceedings{liu-etal-2026-large,
+    title = "Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners",
+    author = "Liu, Yihong  and
+      Zhao, Raoyuan  and
+      Schuetze, Hinrich  and
+      Hedderich, Michael A.",
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-acl.1121/",
+    doi = "10.18653/v1/2026.findings-acl.1121",
+    pages = "22330--22358",
+    ISBN = "979-8-89176-395-1",
+    venue = {Findings of ACL 2026},
+    pdf = {https://aclanthology.org/2026.findings-acl.1121.pdf},
+    arxiv = {2601.02996},
+    abstract = {Large reasoning models (LRMs) achieve strong performance on mathematical reasoning tasks, often attributed to their capability to generate explicit chain-of-thought (CoT) explanations. However, recent work shows that LRMs often arrive at the correct answer before completing these textual reasoning steps, indicating the presence of latent reasoning -- internal, non-verbal computation encoded in hidden states. While this phenomenon has been explored in English, its multilingual behavior remains largely unknown. In this paper, we conduct a systematic investigation of multilingual latent reasoning in LRMs across 11 languages. Using a truncation-based strategy, we examine how the correct answer emerges as the model is given only partial reasoning traces, allowing us to measure stepwise latent prediction formation. Our results reveal clear evidence of multilingual latent reasoning, though unevenly: strong in resource-rich languages, weaker in low-resource ones, and broadly less observable on harder benchmarks. To understand whether these differences reflect distinct internal mechanisms, we further perform representational analyses. Despite surface-level disparities, we find that the internal evolution of predictions is highly consistent across languages and broadly aligns with English -- a pattern suggesting an English-centered latent reasoning pathway.}
+}
+
+@inproceedings{zhao-etal-2026-comprehensive,
+    title = "A Comprehensive Evaluation of Multilingual Chain-of-Thought Reasoning: Performance, Consistency, and Faithfulness Across Languages",
+    author = "Zhao, Raoyuan  and
+      Liu, Yihong  and
+      Schuetze, Hinrich  and
+      Hedderich, Michael A.",
+    editor = "Demberg, Vera  and
+      Inui, Kentaro  and
+      Marquez, Llu{\'i}s",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {EACL} 2026",
+    month = mar,
+    year = "2026",
+    address = "Rabat, Morocco",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-eacl.276/",
+    doi = "10.18653/v1/2026.findings-eacl.276",
+    pages = "5223--5247",
+    ISBN = "979-8-89176-386-9",
+    venue = {Findings of EACL 2026},
+    pdf = {https://aclanthology.org/2026.findings-eacl.276.pdf},
+    arxiv = {2510.09555},
+    abstract = {Large reasoning models (LRMs) increasingly rely on step-by-step Chain-of-Thought (CoT) reasoning to improve task performance, particularly in high-resource languages such as English. While recent work has examined final-answer accuracy in multilingual settings, the thinking traces themselves, i.e., the intermediate steps that lead to the final answer, remain underexplored. In this paper, we present the first comprehensive study of multilingual CoT reasoning, evaluating three key dimensions: performance, consistency, and faithfulness. We begin by measuring language compliance, answer accuracy, and answer consistency when LRMs are explicitly instructed or prompt-hacked to think in a target language, revealing strong language preferences and divergent performance across languages. Next, we assess crosslingual consistency of thinking traces by interchanging them between languages. We find that the quality and effectiveness of thinking traces vary substantially depending on the prompt language. Finally, we adapt perturbation-based techniques -- i.e., truncation and error injection -- to probe the faithfulness of thinking traces across languages, showing that models rely on traces to varying degrees. We release our code and data to support future research.}
+}
+
+@inproceedings{zhao-etal-2025-makieval,
+    title = "{MAKIE}val: A Multilingual Automatic {W}i{K}idata-based Framework for Cultural Awareness Evaluation for {LLM}s",
+    author = "Zhao, Raoyuan  and
+      Chen, Beiduo  and
+      Plank, Barbara  and
+      Hedderich, Michael A.",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {EMNLP} 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.1256/",
+    doi = "10.18653/v1/2025.findings-emnlp.1256",
+    pages = "23104--23136",
+    ISBN = "979-8-89176-335-7",
+    selected = {true},
+    venue = {Findings of EMNLP 2025},
+    pdf = {https://aclanthology.org/2025.findings-emnlp.1256.pdf},
+    arxiv = {2505.21693},
+    abstract = {Large language models (LLMs) are used globally across many languages, but their English-centric pretraining raises concerns about cross-lingual disparities for cultural awareness, often resulting in biased outputs. However, comprehensive multilingual evaluation remains challenging due to limited benchmarks and questionable translation quality. To better assess these disparities, we introduce MAKIEval, an automatic multilingual framework for evaluating cultural awareness in LLMs across languages, regions, and topics. MAKIEval evaluates open-ended text generation, capturing how models express culturally grounded knowledge in natural language. Leveraging Wikidata's multilingual structure as a cross-lingual anchor, it automatically identifies cultural entities in model outputs and links them to structured knowledge, enabling scalable, language-agnostic evaluation without manual annotation or translation. We then introduce four metrics that capture complementary dimensions of cultural awareness: granularity, diversity, cultural specificity, and consensus across languages. We assess 7 LLMs developed from different parts of the world, encompassing both open-source and proprietary systems, across 13 languages, 19 countries and regions, and 6 culturally salient topics (e.g., food, clothing). Notably, we find that models tend to exhibit stronger cultural awareness in English, suggesting that English prompts more effectively activate culturally grounded knowledge.}
+}
+
+@inproceedings{zhao-etal-2025-know,
+    title = "Do We Know What {LLM}s Don{'}t Know? A Study of Consistency in Knowledge Probing",
+    author = {Zhao, Raoyuan  and
+      K{\"o}ksal, Abdullatif  and
+      Modarressi, Ali  and
+      Hedderich, Michael A.  and
+      Schuetze, Hinrich},
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {EMNLP} 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.1263/",
+    doi = "10.18653/v1/2025.findings-emnlp.1263",
+    pages = "23254--23280",
+    ISBN = "979-8-89176-335-7",
+    selected = {true},
+    venue = {Findings of EMNLP 2025},
+    pdf = {https://aclanthology.org/2025.findings-emnlp.1263.pdf},
+    arxiv = {2505.21701},
+    abstract = {The reliability of large language models (LLMs) is greatly compromised by their tendency to hallucinate, underscoring the need for precise identification of knowledge gaps within LLMs. Various methods for probing such gaps exist, ranging from calibration-based to prompting-based methods. To evaluate these probing methods, in this paper, we propose a new process based on using input variations and quantitative metrics. Through this, we expose two dimensions of inconsistency in knowledge gap probing. (1) Intra-method inconsistency: Minimal non-semantic perturbations in prompts lead to considerable variance in detected knowledge gaps within the same probing method; e.g., the simple variation of shuffling answer options can decrease agreement to around 40%. (2) Cross-method inconsistency: Probing methods contradict each other on whether a model knows the answer. Methods are highly inconsistent -- with decision consistency across methods being as low as 7% -- even though the model, dataset, and prompt are all the same. These findings challenge existing probing methods and highlight the urgent need for perturbation-robust probing frameworks.}
+}
+
+@inproceedings{hedderich-etal-2025-whats,
+    title = "What{'}s the Difference? Supporting Users in Identifying the Effects of Prompt and Model Changes Through Token Patterns",
+    author = "Hedderich, Michael A.  and
+      Wang, Anyi  and
+      Zhao, Raoyuan  and
+      Eichin, Florian  and
+      Fischer, Jonas  and
+      Plank, Barbara",
+    editor = "Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher",
+    booktitle = "Proceedings of the 63rd Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.acl-long.985/",
+    doi = "10.18653/v1/2025.acl-long.985",
+    pages = "20093--20123",
+    ISBN = "979-8-89176-251-0",
+    venue = {ACL 2025 (Main)},
+    pdf = {https://aclanthology.org/2025.acl-long.985.pdf},
+    arxiv = {2504.15815},
+    abstract = {Prompt engineering for large language models is challenging, as even small prompt perturbations or model changes can significantly impact the generated output texts. Existing evaluation methods of LLM outputs, either automated metrics or human evaluation, have limitations, such as providing limited insights or being labor-intensive. We propose Spotlight, a new approach that combines both automation and human analysis. Based on data mining techniques, we automatically distinguish between random (decoding) variations and systematic differences in language model outputs. This process provides token patterns that describe the systematic differences and guide the user in manually analyzing the effects of their prompts and changes in models efficiently. We create three benchmarks to quantitatively test the reliability of token pattern extraction methods and demonstrate that our approach provides new insights into established prompt data. From a human-centric perspective, through demonstration studies and a user study, we show that our token pattern approach helps users understand the systematic differences of language model outputs. We are further able to discover relevant differences caused by prompt and model changes (e.g. related to gender or culture), thus supporting the prompt engineering process and human-centric model behavior research.}
+}
+
+@inproceedings{zhao-etal-2024-syntheval,
+    title = "{S}ynth{E}val: Hybrid Behavioral Testing of {NLP} Models with Synthetic {C}heck{L}ists",
+    author = {Zhao, Raoyuan  and
+      K{\"o}ksal, Abdullatif  and
+      Liu, Yihong  and
+      Weissweiler, Leonie  and
+      Korhonen, Anna  and
+      Schuetze, Hinrich},
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {EMNLP} 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.412/",
+    doi = "10.18653/v1/2024.findings-emnlp.412",
+    pages = "7017--7034",
+    venue = {Findings of EMNLP 2024},
+    pdf = {https://aclanthology.org/2024.findings-emnlp.412.pdf},
+    arxiv = {2408.17437},
+    code = {https://github.com/Loreley99/SynthEval_CheckList},
+    abstract = {Traditional benchmarking in NLP typically involves using static held-out test sets. However, this approach often results in an overestimation of performance and lacks the ability to offer comprehensive, interpretable, and dynamic assessments of NLP models. Recently, works like DynaBench (Kiela et al., 2021) and CheckList (Ribeiro et al., 2020) have addressed these limitations through behavioral testing of NLP models with test types generated by a multistep human-annotated pipeline. Unfortunately, manually creating a variety of test types requires much human labor, often at prohibitive cost. In this work, we propose SYNTHEVAL, a hybrid behavioral testing framework that leverages large language models (LLMs) to generate a wide range of test types for a comprehensive evaluation of NLP models. SYNTHEVAL first generates sentences via LLMs using controlled generation, and then identifies challenging examples by comparing the predictions made by LLMs with task-specific NLP models. In the last stage, human experts investigate the challenging examples, manually design templates, and identify the types of failures the taskspecific models consistently exhibit. We apply SYNTHEVAL to two classification tasks, sentiment analysis and toxic language detection, and show that our framework is effective in identifying weaknesses of strong models on these tasks. We share our code in https://github.com/Loreley99/SynthEval_CheckList.}
+}
+
+@misc{chen2026bridged,
+    title = {Bridged Self-Distillation for On-Policy Learning},
+    author = {Runsheng Chen and Yihong Liu and Raoyuan Zhao and Michael A. Hedderich and Hinrich Schütze and Matthias Grabmair},
+    year = {2026},
+    month = oct,
+    eprint = {2610.26397},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2610.26397},
+    code = {https://github.com/TUMLegalTech/Bridged-Self-Distillation},
+    abstract = {On-policy distillation can transfer the reasoning capabilities of a strong teacher to a smaller student. However, distillation from a stronger teacher model faces two mismatches: its solutions may be difficult for a smaller student to imitate, and its token-level probabilities may be incompatible with, or even unavailable to, the student. Existing methods handle these settings through different forms of supervision. To this end, we propose Bridged Self-Distillation (BSD), a unified framework for distilling from any teacher that provides reasoning traces. The model to be distilled from, termed the external teacher, first provides a reasoning trace as privileged context, which can be generated in an offline fashion. The student generates rollouts without this context, while a copy of the student conditioned on it, serving as the self-teacher, scores the same rollouts in the student's own token space. BSD uses the resulting token-level guidance to adjust updates on unsuccessful rollouts, with a verifier providing the outcome signal. As the external teacher is queried only to produce text, the same training procedure applies to all teacher scenarios: shared-tokenizer, cross-tokenizer, and closed API teachers. Across these scenarios, BSD improves over the base model and outperforms baselines tailored to each scenario, offering a novel and unified pathway for distillation. Code is available: https://github.com/TUMLegalTech/Bridged-Self-Distillation}
+}
+
+@misc{tang2026beyond,
+    title = {Beyond Clean Accuracy: The Practical Challenges and Benefits of Pixel-Based Language Models},
+    author = {Haowen Tang and Wei Xia and Raoyuan Zhao and Hinrich Schütze and Yihong Liu},
+    year = {2026},
+    month = oct,
+    eprint = {2610.24290},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2610.24290},
+    abstract = {Pixel-based language models process rendered text without relying on a fixed subword vocabulary, offering a promising approach to noisy and multilingual inputs. However, their practical value depends on whether they can be reliably adapted to downstream tasks. To this end, we systematically examine this question through fine-tuning behavior, typographical robustness, and zero-shot crosslingual transfer. Under our tested settings, pixel-based models require longer training and broader labelled-data coverage than text-based models, while delayed learning and learning-rate-dependent failures make adaptation less reliable. Our analyses further suggest that task-relevant information is less readily accessible in pretrained pixel representations, placing greater demands on fine-tuning. Once successfully adapted, however, pixel-based models lose substantially less accuracy under typographical noise and achieve higher target-language accuracy than English-pretrained text-based counterparts on two crosslingual benchmarks, despite weaker clean English performance. Together, these findings reveal a central trade-off: replacing tokenization with rendering reduces sensitivity to corrupted and unfamiliar inputs, but shifts a central bottleneck to downstream adaptation.}
+}
+
+@misc{zouhar2026last,
+    title = {Last Translation Benchmark},
+    author = {Vilém Zouhar and Niyati Bafna and Mukund Choudhary and Maike Züfle and Sara Rajaee and Pinzhen Chen and Jannis Vamvas and Sara Papi and Ona de Gibert and Bhavitvya Malik and Eliya Habba and Orfeas Menis Mastromichalakis and Patrícia Schmidtová and Michelle Wastl and Sheriff Issaka and Leshem Choshen and Stella Biderman and Antonis Anastasopoulos and Jan Niehues and Rico Sennrich and Mrinmaya Sachan and Ondřej Bojar and Kenton Murray and Jörg Tiedemann and Alham Fikri Aji and Philipp Koehn and Christof Monz and Alexandra Birch and Sowmya Vajjala and Chalamalasetti Kranti and Cristina España-Bonet and Nobin Sarwar and David Kaczér and Sourajit Saha and Jonathan Tonglet and Shunta Asano and Malik Marmonier and Daban Q. Jaff and Vaisakhi Mishra and Hend Al-Khalifa and Gabriele Sarti and Nils Rehlinger and Juan Daniel Cuervo Villa and Dominik Macháček and Saugata Purkayastha and Jagannathan Ramanujam and Shubhashis Roy Dipta and Aviral Nigam and Shuaib Shuaib Yusuf and Heejin Do and Jonathan Yahav and Johannes-Rudolf David and Maria Carmen Staiano and Zuzana Nadova and Fred Philippy and Ron Keinan and Maria Lymperaiou and Silvia Casola and Fabian Retkowski and Andrés Jerez and Hanna Yukhy- menko and Sangwon Ryu and Avantica Vempati and Sukannya Purkayastha and Adrian Cosma and Erivan Inan and Vitalii Babenko and Wafa Aissa and Valentin Scourneau and Fatima Haouari and Venkata Prasanth Kumar Gummadi and Mehdi Jafarzadeh and Manon Reusens and Kaiser Sun and Lukas Edman and Shaomu Tan and Giuseppe Gallipoli and Pawan Sasanka Ammanamanchi and Manar Ali and Mohammad Sadegh Gholizadeh and Dipankar Srirag and Marek Šuppa and Javier García Gilabert and Ruta Binkyte and Ana-Maria Bucur and Sabry E. Farrag and Youssef Saber and Yihong Liu and Theresia Veronika Rampisela and Christian Hoang and Nicoleta Cojocaru and Jan Kocoń and Jean Maillard and Xiaochuang Yuan and Sina Ahmadi and Daryna Dementieva and Philipp Mondorf and Kaustubh Dhole and Valmik Nahata and Roman Wixinger and Amir Hossein Yari and Shenbin Qian and Manuel Tuor and Fida Mohammad Thoker and Sergey Troshin and Lance Calvin Lim Gamboa and Amir Arsalan Rezapour and Kätriin Kukk and Koel Dutta Chowdhury and Shaswati Saha and Seth Aycock and Bo Chen and Linh Vu and Vatsal Venkatkrishna and Shayan Bali and Arafat Ahsan and Luan Thanh Nguyen and Hassan Soliman and Ngoc Quynh Tram Do and Azmine Toushik Wasi and R. Damanhuri and Marius Huber and Kazuki Egashira and Jimson Paulo Layacan and David Africa and Vladislav Poritski and Mike Zhang and Deep Shah and Abdulaziz Nura Kani and Luis Frentzen Salim and Paul Gavrikov and Bello Umar Bello and Ayush Sunil Munot and Anumit Garg and Yolanda Xavier and Qiaoyuan Zheng and Kawsar Ahmed and Debanshu Das and Zimu Wang and Gengyu Rao and Kamile Dementaviciute and Farhan Farsi and L D M S Sai Teja and Dawei Zhu and Yi Fan and Wei Liu and Marco Gaido and Elias Herranen and Sankalan Pal Chowdhury and Karen Sanchez and Guy Kaplan and Farzad Shami and Ashok Urlana and Amir Hossein Kargaran and Sofie Goethals and Priyaranjan Pattnayak and Oksana Volchek and Marii Ojastu and Hongbin Na and Emilian Radoi and Chenyi Zhao and Carlos Hinojosa and Andrei Niculae and Andrea Gregor de Varda and Zaid Alyafeai and Tomasz Limisiewicz and Reem Alzahrani and Pouya Sadeghi and Nehal Kathrotia and Mateusz Lango and Enzo Doyen and Alex Flückiger and Ulysses Sekai Tully Carr and Samuel Simko and Ritwik Tiwari and Rishit Dagli and Isaac R Caswell and Bowen Yi and Aicha Chorana and Selja Keränen and Sadiksha Chitrakar and Muhammad Ravi Shulthan Habibi and Joy Olusanya and Bishal Shrestha and Zhengxiang Wang and Vivek Harsha Lakkamaneni and Sophia Conrad and Panayiotis Panayiotou and Nazia Tasnim and Marta Punsola Munárriz and Marko Culjak and Luis Lara and Jenny Chim and Jannatul Nayem and Fidel Rodríguez Velásquez and Eran Yahav and Blanka Kövér and Beatrice Savoldi and Anmol Goel and Aishik Mandal and Tosin Adewumi and Raoyuan Zhao and Mykola Haltiuk and Antonia Karamolegkou and Yuxing Lu and Thura Aung and Naser Almousa and Tommaso Cerruti and Raia Abu Ahmad and Beni Egressy and Alireza Pakniat and Stéphane J. P. S. Thunus and Rachel Bawden and Lena Libon and Samridhya Biswas and Prakhar Gupta and Nusrat Jahan Lia and Nguyen Tai and Natchapon Jongwiriyanurak and Minh Ngoc Do and Ivan Barać and Dzmitry Kuzmin and Badal Nyalang and Antoine Taroni and Andy Catruna and Rushikesh Zawar and Roland Aydin and Pavel Stepachev and Ilai Yaron Levy and Andreas Simons and Rayyan Merchant and Ziyi Yang and Samuel Frontull and Kenneth Enevoldsen and Harris Abdul Majid and Tim Graf and Tatiana Bielakova and Sharifa Djurabaeva and Shaoxiong Ji and Jirui Qi and Ayla Rigouts Terryn and Yurii Paniv and Xiyan Fu and Sunisth Kumar and Shree Harsha Bokkahalli Satish and Papa Abdou Karim Karou Diallo and Mengyu Ye and Maximilian Vieweg and Matija Akrap and Kristýna Onderková and Joseph Attieh and Ivan Yuri De Leon and Ibrahim Baroud and Esrael Teferi Tensay and Elisabeth Fittschen and David Dukić and Benoît Sagot and Jingwei Ni and Yu Fan and Juri Opitz},
+    year = {2026},
+    month = sep,
+    eprint = {2609.04173},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2609.04173},
+    abstract = {For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for machine translation are approaching saturation. Further, automatic translation metrics are unreliable, opaque, and vulnerable to reward-hacking. Even gold human evaluation is not problem-free, because it often lacks reproducibility, objectivity, and scalability. Overall, this prevents us from tracking progress in the field and identifying pathways for improvement. We introduce the Last Translation Benchmark, a collection of human-authored and peer-reviewed examples (texts, images, audio, videos) that break leading machine translation models. We also present a new evaluation approach: each example comes with handcrafted verification rules describing concrete failure cases on that example, therefore allowing reliable and actionable future evaluation. The Last Translation Benchmark is a live dataset that accepts ongoing contributions. The latest version is LTBv1, containing accepted contributions prior to September 1st 2026, with future releases planned as new data is continuously collected.}
+}
+
+@misc{zhao2026reversemath,
+    title = {ReverseMath: Answer Inversion for Scalable and Verifiable Mathematical Problem Generation},
+    author = {Raoyuan Zhao and Yihong Liu and Yupei Du and Hinrich Schütze and Michael A. Hedderich},
+    year = {2026},
+    month = may,
+    eprint = {2605.27709},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2605.27709},
+    abstract = {Mathematical reasoning benchmarks are vital for evaluating large language models (LLMs), but many are static and repeatedly exposed through public evaluation and training pipelines, making it difficult to separate genuine reasoning from memorization. Meanwhile, manually constructing new math problems with reliable answers remains costly. We introduce ReverseMath, a scalable method for generating new math problems through answer inversion. Given a problem and its answer, ReverseMath masks a numerical value in the original problem, treats the original answer as a known condition, and rewrites the problem so that the masked value becomes the new answer. The generated problem reverses the original input-output relation, making its answer known by construction. We study ReverseMath for both evaluation and training. For evaluation, paired original/reversed problems reveal substantial behavioral shifts: models sometimes fail on reversed problems and even incorrectly output the original answer, suggesting memorization-like behavior. For training, ReverseMath provides automatically labeled reversed problems as data augmentation for reinforcement learning (RL). Experiments show that including ReverseMath-generated data improves mathematical reasoning performance across multiple benchmarks, demonstrating its value as both an analysis tool and a scalable source of verifiable training data.}
+}
+
+@misc{liu2026crosslingual,
+    title = {Crosslingual On-Policy Self-Distillation for Multilingual Reasoning},
+    author = {Yihong Liu and Raoyuan Zhao and Michael A. Hedderich and Hinrich Schütze},
+    year = {2026},
+    month = may,
+    eprint = {2605.09548},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2605.09548},
+    selected = {true},
+    code = {https://github.com/cisnlp/COPSD},
+    abstract = {Large language models (LLMs) have achieved remarkable progress in mathematical reasoning, but this ability is not equally accessible across languages. Especially low-resource languages exhibit much lower reasoning performance. To address this, we propose Crosslingual On-Policy Self-Distillation (COPSD), which transfers a model's own high-resource reasoning behavior to low-resource languages. COPSD uses the same model as student and teacher: the student sees only the low-resource problem, while the teacher receives privileged crosslingual context, including the problem translation and reference solution in English. Training minimizes full-distribution token-level divergence on the student's own rollouts, providing dense supervision while avoiding the sparsity and instability of outcome-only reinforcement learning (RL). Experiments on 17 low-resource African languages show that COPSD consistently improves low-resource mathematical reasoning across model sizes and substantially outperforms Group Relative Policy Optimization (GRPO). Further analyses show that COPSD improves answer-format adherence, strengthens test-time scaling, and generalizes to harder multilingual reasoning benchmarks, with especially large gains for lower-resource languages. We make our code and data available at: https://github.com/cisnlp/COPSD.}
+}
+
+@inproceedings{lan2026human,
+    title = {Human Uncertainty-Aware Data Selection and Automatic Labeling in Visual Question Answering},
+    author = {Jian Lan and Zhicheng Liu and Udo Schlegel and Raoyuan Zhao and Yihong Liu and Hinrich Schütze and Michael A. Hedderich and Thomas Seidl},
+    booktitle = {The Fourteenth International Conference on Learning Representations},
+    year = {2026},
+    month = apr,
+    address = {Rio de Janeiro, Brazil},
+    url = {https://proceedings.iclr.cc/paper_files/paper/2026/hash/97b73904e88cc1dc0a3485595eda3753-Abstract-Conference.html},
+    venue = {ICLR 2026 (Main)},
+    arxiv = {2510.11295},
+    abstract = {Large vision-language models (VLMs) achieve strong performance in Visual Question Answering but still rely heavily on supervised fine-tuning (SFT) with massive labeled datasets, which is costly due to human annotations. Crucially, real-world datasets often exhibit human uncertainty (HU) -- variation in human confidence across annotations -- but standard SFT simply optimizes toward the most frequent label, disregarding HU distributions. This leaves two open questions: How does HU affect SFT, and how can HU be effectively leveraged in training? In this work, we first conduct a systematic evaluation of VLMs across varying HU levels. We have two key findings: (i) surprisingly, high-HU samples contribute little or even degrade model performance, and (ii) naively training on the full dataset yields under-calibrated models that fail to capture HU distributions. Motivated by these findings, we introduce HaDola, a human uncertainty-aware data selection and automatic labeling framework. HaDola operates in four stages -- discriminate, self-annotate, error trigger, and training -- to iteratively identify harmful samples, prioritize informative ones, and bootstrap from a small seed set (5\% of data). Our approach substantially reduces reliance on costly HU annotations and makes VLMs more accurate and better calibrated. Extensive experiments on VQAv2 and VizWiz datasets demonstrate that HaDola consistently matches or outperforms state-of-the-art baselines with less training data. Our work highlights the importance of explicitly modeling HU in SFT, suggesting that better utilization of HU is more effective than merely scaling up dataset size.}
+}

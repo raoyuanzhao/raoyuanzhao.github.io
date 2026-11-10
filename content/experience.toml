@@ -1,0 +1,99 @@
+# Experience and education, newest first within each group.
+# Shown on the CV page (content/cv.toml); there is no separate Experience page.
+#
+# Fields per entry:
+#   title     role or degree (required)
+#   subtitle  organisation or institution
+#   date      period as you want it shown, e.g. "Jul 2026 – Dec 2026"
+#   location  optional
+#   status    optional badge, e.g. "Current"
+#   details   optional list of extra lines (inline Markdown)
+#   content   optional description (Markdown)
+#   image     optional square logo in public/ (PNG or JPG), e.g. "/logos/lmu.png"
+#   link      optional URL for the title
+#   category  "Research Experience" or "Education" (controls the group)
+#   hidden    set to true to keep an entry here without showing it
+
+type = "card"
+title = "Experience"
+description = "Research positions and education."
+layout = "timeline"
+group_by = "category"
+groups = ["Research Experience", "Education"]
+
+[[items]]
+category = "Research Experience"
+title = "Research Intern"
+subtitle = "Cohere"
+date = "Jul 2026 – Dec 2026"
+location = "London, United Kingdom"
+image = "/logos/cohere.png"
+link = "https://cohere.com/"
+content = "Working on improving instruction following and self-verification in large language models, with a focus on reinforcement learning, post-training, and reliable verification of fine-grained constraints."
+
+[[items]]
+category = "Research Experience"
+title = "PhD Researcher"
+subtitle = "LMU Munich"
+image = "/logos/lmu.png"
+date = "Dec 2024 – Present"
+location = "Munich, Germany"
+link = "https://www.lmu.de/en/"
+details = [
+  "Affiliated with [MaiNLP](https://mainlp.github.io/) and [MCML](https://mcml.ai/)",
+]
+content = "Research in Natural Language Processing, including LLM reasoning, post-training, multilingual modeling, robustness, and evaluation."
+
+[[items]]
+category = "Research Experience"
+title = "Student Research Assistant (HiWi)"
+subtitle = "LMU Munich"
+image = "/logos/lmu.png"
+# TODO: add the period, e.g. date = "Mmm YYYY – Mmm YYYY"
+location = "Munich, Germany"
+link = "https://cisnlp.github.io/"
+details = [
+  "[Prof. Hinrich Schütze's lab](https://cisnlp.github.io/), Center for Information and Language Processing (CIS)",
+  "Worked closely with [Abdullatif Köksal](https://akoksal.com/)",
+]
+
+[[items]]
+category = "Education"
+title = "PhD in Natural Language Processing"
+subtitle = "LMU Munich"
+image = "/logos/lmu.png"
+date = "Dec 2024 – Present"
+location = "Munich, Germany"
+details = [
+  "Supervisor: [Dr. Michael A. Hedderich](https://michael-hedderich.de/)",
+]
+
+[[items]]
+category = "Education"
+title = "M.Sc. Robotics, Cognition, Intelligence"
+subtitle = "Technical University of Munich (TUM)"
+image = "/logos/tum.png"
+date = "Oct 2021 – Nov 2024"
+location = "Munich, Germany"
+link = "https://www.tum.de/en/"
+details = [
+  "Master's thesis supervised by [Abdullatif Köksal](https://akoksal.com/) and [Ali Modarressi](https://amodarressi.com/)",
+]
+
+[[items]]
+category = "Education"
+title = "Bachelor's Degree"
+subtitle = "TH Lübeck"
+image = "/logos/th-luebeck.png"
+date = "2020 – 2021"
+location = "Lübeck, Germany"
+link = "https://www.th-luebeck.de/en/"
+
+[[items]]
+category = "Education"
+title = "Bachelor's Degree in Electrical Engineering and Automation"
+subtitle = "East China University of Science and Technology"
+image = "/logos/ecust.png"
+date = "Sep 2017 – Jun 2021"
+location = "Shanghai, China"
+link = "https://www.ecust.edu.cn/"

@@ -1,0 +1,28 @@
+# Teaching, newest first. Also shown on the CV page.
+#
+# Template:
+#
+# [[items]]
+# title = "Course or seminar name"
+# subtitle = "LMU Munich"                       # institution
+# date = "Summer Semester 2027"                 # academic semester
+# status = "Upcoming"                           # remove once the course has started
+# details = ["Role: Teaching Assistant"]        # teaching role, co-instructors …
+# content = "Short course description (Markdown)."
+# links = [
+#   { label = "Course website", url = "https://…" },
+#   { label = "Materials", url = "https://…" },
+# ]
+
+type = "card"
+title = "Teaching"
+description = "Courses and seminars I teach or assist with."
+layout = "timeline"
+empty_message = "Teaching details will be added soon."
+
+[[items]]
+title = "Seminar — Title TBA"
+subtitle = "LMU Munich"
+date = "2027"
+status = "Upcoming"
+details = ["Role: To be confirmed"]
