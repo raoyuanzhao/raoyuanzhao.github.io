@@ -40,6 +40,7 @@ export interface VisitorCountry {
 
 export interface VisitorStats {
   metric: 'visits' | 'visitors';
+  /** All-time total reported by the provider; includes visits whose country is unknown */
   total: number;
   /** Sorted by count, highest first */
   countries: VisitorCountry[];
@@ -51,6 +52,7 @@ export interface VisitorStats {
 interface RawStats {
   metric?: unknown;
   generatedAt?: unknown;
+  total?: unknown;
   countries?: Array<{ code?: unknown; count?: unknown }>;
 }
 
@@ -92,10 +94,13 @@ export function getVisitorStats(): VisitorStats | null {
   const lowest = others.length ? Math.min(...others.map((c) => c.count)) : undefined;
   const rarest = others.filter((c) => c.count === lowest).sort((a, b) => a.name.localeCompare(b.name, 'en'))[0];
   const generatedAt = typeof raw.generatedAt === 'string' && !Number.isNaN(Date.parse(raw.generatedAt)) ? raw.generatedAt : undefined;
+  const located = countries.reduce((sum, c) => sum + c.count, 0);
+  const reported = Number(raw.total);
 
   cached = {
     metric: raw.metric === 'visitors' ? 'visitors' : 'visits',
-    total: countries.reduce((sum, c) => sum + c.count, 0),
+    // Files written before the total was fetched only have per-country counts.
+    total: Number.isInteger(reported) && reported >= located ? reported : located,
     countries,
     top,
     rarest,

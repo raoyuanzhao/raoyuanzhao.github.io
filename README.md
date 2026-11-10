@@ -141,9 +141,12 @@ The `-ink` and `-strong` shades keep the brand hues but are dark enough for read
 
 A compact "Visitor map" card sits directly below the profile and social links, in the sidebar on desktop and under the profile on phones. It shows:
 
-- a self-hosted world map (`public/world-map.svg`) with one coral dot per country that visitors came from, sized by the number of visits (hover a dot for the country and count);
+- **Total Visits** in the top-right corner of the card: the provider's all-time total, which also counts visits whose country could not be determined;
+- a self-hosted world map (`public/world-map.svg`) with one translucent coral dot per country that visitors came from, placed at the country's label point (Natural Earth) and sized by the square root of its visits relative to the busiest country. Hovering (or tapping) near a dot shows a tooltip with flag, country name, and count; keyboard users can tab to the map and step through the countries with the arrow keys;
 - 🏆 **Most Visits** and 💎 **Rarest Visitor** (the country with the fewest visits; ties are broken alphabetically), each with flag, country name, and count;
-- the total number of visits and countries, and when the figures were last updated.
+- the number of countries, and when the figures were last updated.
+
+The total and the per-country counts come from the same provider, for the same period (all time), and in the same unit (GoatCounter: first visit of a session, bots excluded; Umami: visits, or unique visitors on old versions). The fetch step fails if the total is ever lower than the sum of the countries.
 
 Until visits have been recorded it shows only the map with "No visits recorded yet." (or "Live visitor statistics are not enabled yet." while no provider is configured).
 
@@ -152,7 +155,7 @@ Until visits have been recorded it shows only the map with "No visits recorded y
 GitHub Pages only serves static files, so the statistics are fetched **at build time**, not in the visitor's browser:
 
 1. A cookieless counter script (GoatCounter or Umami) records page views on the deployed site. It is only loaded on the address set as `url` under `[site]` (not on local previews), and not at all for browsers that send Do Not Track or Global Privacy Control. Query strings and URL fragments are never sent.
-2. `npm run stats` (`scripts/fetch-visitor-stats.mjs`) asks the provider's API for all-time visits per country and writes `.generated/visitor-stats.json` (country codes and counts only), and copies the flags of those countries from [flag-icons](https://flagicons.lipis.dev/) to `public/flags/`. Both are generated files and are not committed.
+2. `npm run stats` (`scripts/fetch-visitor-stats.mjs`) asks the provider's API for all-time visits per country and the all-time total, and writes `.generated/visitor-stats.json` (country codes and counts only), and copies the flags of those countries from [flag-icons](https://flagicons.lipis.dev/) to `public/flags/`. Both are generated files and are not committed.
 3. `npm run build` reads the file and renders the card into the static pages.
 
 The GitHub Actions workflow runs these steps on every push and **every 6 hours**, so the card refreshes automatically. The API credential is a GitHub Actions secret that only the "Fetch visitor statistics" step can read; it never reaches the build output or the browser. If a configured provider cannot be reached, the workflow stops before deploying, so the currently live statistics stay in place. (GitHub pauses scheduled workflows in public repositories after 60 days without commits; re-enable it in the Actions tab if that happens.)

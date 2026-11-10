@@ -224,29 +224,43 @@ body {
   background-color: var(--vm-land-dark, var(--neutral-300));
 }
 
-/* One dot per visiting country; the background-coloured outline keeps neighbouring dots apart. */
+/*
+ * One dot per visiting country: translucent coral with a hairline rim, so overlapping dots in
+ * dense regions stay distinguishable. The rim stays 1px wide at any map size.
+ */
 .visitor-dot {
   fill: var(--accent);
-  fill-opacity: 0.72;
-  stroke: var(--vm-ocean, var(--neutral-100));
-  stroke-width: 3;
+  fill-opacity: 0.5;
+  stroke: var(--accent-strong);
+  stroke-opacity: 0.75;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  transition: fill-opacity 0.15s ease, stroke-opacity 0.15s ease;
   forced-color-adjust: none;
 }
 
-.dark .visitor-dot {
-  stroke: var(--vm-ocean-dark, var(--neutral-100));
+.visitor-dot-active {
+  fill-opacity: 0.9;
+  stroke-opacity: 1;
+  stroke-width: 1.5px;
 }
 
-.visitor-dot-top {
-  fill: var(--accent-strong);
-  fill-opacity: 0.95;
+.visitor-tooltip {
+  animation: visitor-tooltip-in 0.12s ease-out;
 }
 
-.visitor-dot-halo {
-  fill: none;
-  stroke: var(--accent);
-  stroke-opacity: 0.35;
-  stroke-width: 3;
+@keyframes visitor-tooltip-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visitor-dot,
+  .visitor-tooltip {
+    transition: none;
+    animation: none;
+  }
 }
 
 /* News: scrollable timeline with a thin coral scrollbar */

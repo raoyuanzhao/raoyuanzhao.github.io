@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
- * Fetches all-time visits per country from the configured analytics provider and writes them to
- * .generated/visitor-stats.json, which the build reads to render the sidebar visitor map.
+ * Fetches all-time visits per country, and the all-time total for the same period, from the
+ * configured analytics provider and writes them to .generated/visitor-stats.json, which the build
+ * reads to render the sidebar visitor map. The total also includes visits whose country is unknown,
+ * so it can be higher than the sum of the countries, but never lower.
  * The flags of the listed countries are copied to public/flags/.
  *
  * Credentials come from environment variables only (GitHub Actions secrets in CI):
@@ -53,15 +55,22 @@ async function fetchGoatCounter({ code }) {
     end.setUTCMinutes(0, 0, 0);
     end.setUTCHours(end.getUTCHours() + 1);
 
+    const range = { start: GOATCOUNTER_EPOCH, end: end.toISOString() };
+
     const rows = [];
     for (let offset = 0; offset < 1000; offset += 100) {
-        const params = new URLSearchParams({ start: GOATCOUNTER_EPOCH, end: end.toISOString(), limit: '100', offset: String(offset) });
+        const params = new URLSearchParams({ ...range, limit: '100', offset: String(offset) });
         const data = await getJson(`${base}/stats/locations?${params}`, { headers });
         for (const stat of data?.stats ?? []) rows.push({ code: stat?.id, count: stat?.count });
         if (!data?.more) break;
         await sleep(300); // API limit: 4 requests per second
     }
-    return { provider: 'goatcounter', rows };
+
+    // Same range and unit as the locations: first visits of a session, bots excluded, events included.
+    // total_utc is not used because GoatCounter shifts its range by the account's timezone.
+    await sleep(300);
+    const totals = await getJson(`${base}/stats/total?${new URLSearchParams(range)}`, { headers });
+    return { provider: 'goatcounter', rows, total: totals?.total };
 }
 
 async function umamiToken(apiUrl) {
@@ -92,14 +101,28 @@ async function fetchUmami({ website_id: websiteId, api_url: apiUrlSetting }) {
     const startAt = Date.parse(website?.createdAt) || 0;
     const params = new URLSearchParams({ type: 'country', startAt: String(startAt), endAt: String(Date.now()), limit: '500' });
 
+    const rangeParams = new URLSearchParams({ startAt: params.get('startAt'), endAt: params.get('endAt') });
+    const summary = await getJson(`${site}/stats?${rangeParams}`, { headers });
+    // Umami 2.x wraps each figure as { value, prev }; newer versions return plain numbers.
+    const figure = (value) => (typeof value === 'object' && value !== null ? value.value : value);
+
     try {
         const data = await getJson(`${site}/metrics/expanded?${params}`, { headers });
-        return { provider: 'umami', rows: (Array.isArray(data) ? data : []).map((row) => ({ code: row?.name, count: row?.visits })) };
+        return {
+            provider: 'umami',
+            rows: (Array.isArray(data) ? data : []).map((row) => ({ code: row?.name, count: row?.visits })),
+            total: figure(summary?.visits),
+        };
     } catch (error) {
         // Umami versions without /metrics/expanded only report unique visitors per country.
         if (!(error instanceof FetchError) || !error.message.endsWith('HTTP 404')) throw error;
         const data = await getJson(`${site}/metrics?${params}`, { headers });
-        return { provider: 'umami', metric: 'visitors', rows: (Array.isArray(data) ? data : []).map((row) => ({ code: row?.x, count: row?.y })) };
+        return {
+            provider: 'umami',
+            metric: 'visitors',
+            rows: (Array.isArray(data) ? data : []).map((row) => ({ code: row?.x, count: row?.y })),
+            total: figure(summary?.visitors),
+        };
     }
 }
 
@@ -143,17 +166,25 @@ async function main() {
     }
 
     const countries = normalize(result.rows);
+    const located = countries.reduce((sum, c) => sum + c.count, 0);
+    const reported = Number(result.total);
+    if (!Number.isInteger(reported) || reported < located) {
+        throw new FetchError(`total (${result.total}) is missing or lower than the sum of the countries (${located})`);
+    }
     const stats = {
         provider: result.provider,
         metric: result.metric ?? 'visits',
         generatedAt: new Date().toISOString(),
+        total: reported,
         countries,
     };
     await mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
     await writeFile(OUTPUT_FILE, `${JSON.stringify(stats, null, 2)}\n`);
     await copyFlags(countries);
-    const total = countries.reduce((sum, c) => sum + c.count, 0);
-    console.log(`Visitor statistics: ${total} ${stats.metric} from ${countries.length} ${countries.length === 1 ? 'country' : 'countries'} (${provider}).`);
+    console.log(
+        `Visitor statistics: ${reported} ${stats.metric} in total, ${located} from ${countries.length} ${countries.length === 1 ? 'country' : 'countries'}` +
+            ` (${reported - located} with unknown country; ${provider}).`,
+    );
 }
 
 main().catch((error) => {
