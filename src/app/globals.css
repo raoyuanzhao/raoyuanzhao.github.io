@@ -224,6 +224,16 @@ body {
   background-color: var(--vm-land-dark, var(--neutral-300));
 }
 
+/* The same land outline, drawn inside the zoomable SVG with <use href="/world-map.svg#land"> */
+.visitor-map-land {
+  fill: var(--vm-land, var(--neutral-300));
+  forced-color-adjust: none;
+}
+
+.dark .visitor-map-land {
+  fill: var(--vm-land-dark, var(--neutral-300));
+}
+
 /*
  * One dot per visiting country: translucent coral with a hairline rim, so overlapping dots in
  * dense regions stay distinguishable. The rim stays 1px wide at any map size.
