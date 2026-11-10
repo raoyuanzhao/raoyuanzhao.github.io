@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    # Rebuild every 6 hours to refresh the visitor statistics in the sidebar
-    - cron: '17 */6 * * *'
+    # Rebuild every 1 hour to refresh the visitor statistics in the sidebar
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
