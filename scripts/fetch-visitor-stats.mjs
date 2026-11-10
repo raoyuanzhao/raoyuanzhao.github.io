@@ -27,7 +27,12 @@ const REQUEST_TIMEOUT_MS = 20_000;
 // GoatCounter started in 2019, so no site has data before this date.
 const GOATCOUNTER_EPOCH = '2019-01-01T00:00:00Z';
 
-class FetchError extends Error {}
+class FetchError extends Error {
+    constructor(message, status) {
+        super(message);
+        this.status = status;
+    }
+}
 
 async function getJson(url, init = {}) {
     let response;
@@ -37,7 +42,8 @@ async function getJson(url, init = {}) {
         throw new FetchError(`${new URL(url).pathname}: ${error.message}`);
     }
     if (!response.ok) {
-        throw new FetchError(`${new URL(url).pathname}: HTTP ${response.status}`);
+        const body = (await response.text().catch(() => '')).replace(/\s+/g, ' ').trim().slice(0, 300);
+        throw new FetchError(`${new URL(url).pathname}: HTTP ${response.status}${body ? ` ${body}` : ''}`, response.status);
     }
     return response.json();
 }
@@ -115,7 +121,7 @@ async function fetchUmami({ website_id: websiteId, api_url: apiUrlSetting }) {
         };
     } catch (error) {
         // Umami versions without /metrics/expanded only report unique visitors per country.
-        if (!(error instanceof FetchError) || !error.message.endsWith('HTTP 404')) throw error;
+        if (!(error instanceof FetchError) || error.status !== 404) throw error;
         const data = await getJson(`${site}/metrics?${params}`, { headers });
         return {
             provider: 'umami',
@@ -188,6 +194,9 @@ async function main() {
 }
 
 main().catch((error) => {
-    console.error(`Could not fetch visitor statistics: ${error instanceof FetchError ? error.message : error}`);
+    const message = `Could not fetch visitor statistics: ${error instanceof FetchError ? error.message : error}`;
+    console.error(message);
+    // Also show the reason in the run's Annotations summary, not only in the step log.
+    if (process.env.GITHUB_ACTIONS) console.log(`::error title=Visitor statistics::${message.replace(/\r?\n/g, ' ')}`);
     process.exit(1);
 });
